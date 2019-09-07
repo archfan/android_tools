@@ -15,7 +15,7 @@ if [ "$EUID" -ne 0 ] && [ -z "$user_password" ]; then
 fi
 
 # Install some packages
-echo "$user_password" | sudo -S apt-get install -y android-tools-fsutils aria2 arj brotli cabextract cmake device-tree-compiler file-roller g++ git liblz4-tool liblzma-dev libtinyxml2-dev mpack openjdk-8-jdk p7zip-full p7zip-rar python-pip python3-pip rar sharutils unace unrar unzip uudeview zip
+echo "$user_password" | sudo pacman -Sy --noconfirm android-tools aria2 arj brotli cabextract cmake dtc file-roller gcc git lz4 xz tinyxml2 mpack jdk8-openjdk p7zip python2-pip python-pip rar unrar sharutils unace zip unzip uudeview zip
 pip install backports.lzma protobuf pycrypto
 
 # Clone repo's
