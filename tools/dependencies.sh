@@ -9,14 +9,9 @@
 # Store project path
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null && pwd )"
 
-# Password
-if [ "$EUID" -ne 0 ] && [ -z "$user_password" ]; then
-    read -p "Enter user password: " user_password
-fi
-
 # Install some packages
-echo "$user_password" | sudo pacman -Sy --noconfirm android-tools aria2 arj brotli cabextract cmake dtc file-roller gcc git lz4 xz tinyxml2 mpack jdk8-openjdk p7zip python2-pip python-pip rar unrar sharutils unace zip unzip uudeview zip
-pip install backports.lzma protobuf pycrypto
+sudo pacman -Sy --noconfirm android-tools aria2 arj brotli cabextract cmake dtc file-roller gcc git lz4 xz tinyxml2 mpack jdk8-openjdk p7zip python2-pip python-pip rar unrar sharutils unace zip unzip uudeview zip
+sudo pip install backports.lzma protobuf pycrypto
 
 # Clone repo's
 if [ -d "$PROJECT_DIR/tools/extract-dtb" ]; then
